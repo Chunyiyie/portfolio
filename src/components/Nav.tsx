@@ -6,7 +6,6 @@ import { profile } from "@/data/profile";
 import { useIntroReady } from "@/components/IntroProvider";
 
 const links = [
-  { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#education", label: "Education" },
   { href: "#certificates", label: "Certificates" },
@@ -42,7 +41,7 @@ export function Nav() {
     >
       <nav className="mx-auto flex h-14 max-w-[88rem] items-center justify-between px-4 sm:px-8">
         <a
-          href="#about"
+          href="#profile"
           className="font-display text-[1.35rem] font-semibold tracking-[-0.04em] text-[var(--ink)]"
         >
           {profile.name}

@@ -84,7 +84,7 @@ function ProjectTile({
   reduceMotion: boolean;
   ready: boolean;
 }) {
-  const href = project.demoUrl || project.repoUrl || "#about";
+  const href = project.demoUrl || project.repoUrl || "#profile";
 
   return (
     <motion.a

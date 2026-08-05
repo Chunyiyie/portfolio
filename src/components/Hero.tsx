@@ -12,21 +12,13 @@ export function Hero() {
   const show = ready || !!reduceMotion;
 
   return (
-    <section id="about" className="section-shell scroll-mt-14">
+    <section id="profile" className="section-shell scroll-mt-14">
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
         <div>
-          <motion.p
-            initial={false}
-            animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-            transition={{ duration: 0.45, ease, delay: 0.05 }}
-            className="section-title mb-5"
-          >
-            About
-          </motion.p>
           <motion.h1
             initial={false}
             animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.55, ease, delay: 0.12 }}
+            transition={{ duration: 0.55, ease, delay: 0.08 }}
             className="font-display text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-[var(--ink)]"
           >
             {profile.name}
@@ -34,7 +26,7 @@ export function Hero() {
           <motion.p
             initial={false}
             animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-            transition={{ duration: 0.5, ease, delay: 0.2 }}
+            transition={{ duration: 0.5, ease, delay: 0.16 }}
             className="mt-5 max-w-xl text-xl leading-relaxed text-[var(--ink-soft)]"
           >
             {profile.title}
@@ -44,7 +36,7 @@ export function Hero() {
         <motion.div
           initial={false}
           animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-          transition={{ duration: 0.5, ease, delay: 0.28 }}
+          transition={{ duration: 0.5, ease, delay: 0.24 }}
           className="flex flex-col justify-end"
         >
           <p className="max-w-xl text-base leading-relaxed text-[var(--muted)]">
