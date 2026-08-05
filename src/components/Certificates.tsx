@@ -8,8 +8,7 @@ export function Certificates() {
     <section id="certificates" className="section-shell scroll-mt-14">
       <Reveal>
         <SectionHeading
-          eyebrow="Certificates"
-          title="证书"
+          title="Certificates"
           description="可在线核验的专业认证与系统化学习成果。"
         />
       </Reveal>

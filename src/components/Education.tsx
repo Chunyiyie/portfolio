@@ -7,8 +7,7 @@ export function Education() {
     <section id="education" className="section-shell scroll-mt-14">
       <Reveal>
         <SectionHeading
-          eyebrow="Education"
-          title="教育背景"
+          title="Education"
           description="从展示设计到设计学研究，持续积累研究与实践能力。"
         />
       </Reveal>

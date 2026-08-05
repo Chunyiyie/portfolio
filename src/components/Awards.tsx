@@ -7,8 +7,7 @@ export function Awards() {
     <section id="awards" className="section-shell scroll-mt-14">
       <Reveal>
         <SectionHeading
-          eyebrow="Awards"
-          title="获奖"
+          title="Awards"
           description="学术竞赛、奖学金与在校荣誉。"
         />
       </Reveal>

@@ -7,8 +7,7 @@ export function Experience() {
     <section id="experience" className="section-shell scroll-mt-14">
       <Reveal>
         <SectionHeading
-          eyebrow="Experience"
-          title="经历"
+          title="Experience"
           description="从空间设计到 UX 研究与 AI 实践，持续转向产品与用户研究方向。"
         />
       </Reveal>

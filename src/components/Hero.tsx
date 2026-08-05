@@ -19,7 +19,7 @@ export function Hero() {
             initial={false}
             animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
             transition={{ duration: 0.45, ease, delay: 0.05 }}
-            className="mb-4 text-sm text-[var(--muted)]"
+            className="mb-5 font-display text-4xl font-semibold tracking-[-0.04em] text-[var(--ink)] sm:text-5xl md:text-6xl"
           >
             About
           </motion.p>
@@ -27,7 +27,7 @@ export function Hero() {
             initial={false}
             animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.55, ease, delay: 0.12 }}
-            className="font-display text-[clamp(2.4rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-[var(--ink)]"
+            className="font-display text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-[var(--ink)]"
           >
             {profile.name}
           </motion.h1>

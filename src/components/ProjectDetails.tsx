@@ -7,8 +7,7 @@ export function ProjectDetails() {
     <section id="selected" className="section-shell scroll-mt-14">
       <Reveal>
         <SectionHeading
-          eyebrow="Selected"
-          title="精选说明"
+          title="Selected"
           description="围绕 UX 研究、AI 实践、空间设计与学术研究的代表性经历补充。"
         />
       </Reveal>

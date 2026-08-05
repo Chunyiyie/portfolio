@@ -7,8 +7,7 @@ export function Skills() {
     <section id="skills" className="section-shell scroll-mt-14">
       <Reveal>
         <SectionHeading
-          eyebrow="Skills"
-          title="技能"
+          title="Skills"
           description="覆盖用户研究、设计工具、空间三维以及 AI 辅助实践。"
         />
       </Reveal>
