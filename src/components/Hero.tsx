@@ -19,7 +19,7 @@ export function Hero() {
             initial={false}
             animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
             transition={{ duration: 0.45, ease, delay: 0.05 }}
-            className="mb-5 font-display text-[20px] font-semibold tracking-[-0.02em] text-[var(--ink)]"
+            className="section-title mb-5"
           >
             About
           </motion.p>
