@@ -6,8 +6,8 @@ import { profile } from "@/data/profile";
 import { useIntroReady } from "@/components/IntroProvider";
 
 const links = [
-  { href: "#projects", label: "Projects" },
   { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
   { href: "#education", label: "Education" },
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
@@ -20,6 +20,7 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const reduceMotion = useReducedMotion();
   const ready = useIntroReady();
+  const show = ready || !!reduceMotion;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -30,34 +31,29 @@ export function Nav() {
 
   return (
     <motion.header
-      initial={reduceMotion ? false : { opacity: 0, y: -16 }}
-      animate={
-        ready || reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }
-      }
-      transition={{ duration: 0.55, ease, delay: ready ? 0.05 : 0 }}
+      initial={false}
+      animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
+      transition={{ duration: 0.55, ease, delay: 0.05 }}
       className={`sticky top-0 z-50 border-b bg-[var(--bg)]/92 backdrop-blur-md ${
         scrolled ? "border-[var(--line)]" : "border-transparent"
       }`}
     >
       <nav className="mx-auto flex h-14 max-w-[88rem] items-center justify-between px-4 sm:px-8">
-        <motion.a
-          href="#projects"
+        <a
+          href="#about"
           className="font-display text-[1.35rem] font-semibold tracking-[-0.04em] text-[var(--ink)]"
-          initial={reduceMotion ? false : { opacity: 0 }}
-          animate={ready || reduceMotion ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
         >
           {profile.name}
-        </motion.a>
+        </a>
 
         <motion.ul
           className="hidden items-center gap-7 md:flex"
-          initial={reduceMotion ? false : "hidden"}
-          animate={ready ? "show" : "hidden"}
+          initial={false}
+          animate={show ? "show" : "hidden"}
           variants={{
             hidden: {},
             show: {
-              transition: { staggerChildren: 0.05, delayChildren: 0.15 },
+              transition: { staggerChildren: 0.05, delayChildren: 0.12 },
             },
           }}
         >

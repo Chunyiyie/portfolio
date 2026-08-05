@@ -13,8 +13,8 @@ export default function Home() {
     <IntroProvider>
       <Nav />
       <main className="flex-1">
-        <Projects />
         <Hero />
+        <Projects />
         <Education />
         <Skills />
         <Experience />
