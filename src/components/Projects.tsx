@@ -1,83 +1,93 @@
+"use client";
+
 import Image from "next/image";
-import { projects } from "@/data/projects";
-import { Reveal } from "@/components/Reveal";
-import { SectionHeading } from "@/components/SectionHeading";
+import { useMemo, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import {
+  projectCategories,
+  projects,
+  type Project,
+} from "@/data/projects";
 
 export function Projects() {
+  const [active, setActive] = useState<(typeof projectCategories)[number]>("全部");
+  const reduceMotion = useReducedMotion();
+
+  const filtered = useMemo(() => {
+    if (active === "全部") return projects;
+    return projects.filter((project) => project.category === active);
+  }, [active]);
+
   return (
-    <section id="projects" className="section-shell">
-      <Reveal>
-        <SectionHeading
-          eyebrow="Projects // Builds"
-          title="作品集"
-          description="精选项目展示：从问题到方案，再到可访问的成果。"
-          accent="ink"
-        />
-      </Reveal>
+    <section id="projects" className="scroll-mt-14">
+      <div className="filter-bar mx-auto max-w-[88rem]">
+        {projectCategories.map((category) => (
+          <button
+            key={category}
+            type="button"
+            className="filter-chip"
+            aria-pressed={active === category}
+            onClick={() => setActive(category)}
+          >
+            {category === "全部" ? "+ Projects" : `+${category}`}
+          </button>
+        ))}
+      </div>
 
-      <div className="space-y-8">
-        {projects.map((project, index) => (
-          <Reveal key={project.title} delay={index * 0.05}>
-            <article className="project-frame">
-              <div className="project-media">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} 预览`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                />
-              </div>
-
-              <div className="flex flex-col justify-between bg-[var(--bg-elevated)] p-6 sm:p-8">
-                <div>
-                  <p className="font-mono-tech mb-3 text-[11px] tracking-[0.18em] text-[var(--muted)] uppercase">
-                    Case_0{index + 1}
-                  </p>
-                  <h3 className="font-display text-3xl font-semibold text-[var(--ink)]">
-                    {project.title}
-                  </h3>
-                  <p className="mt-4 leading-relaxed text-[var(--muted)]">
-                    {project.description}
-                  </p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <li
-                        key={tag}
-                        className="font-mono-tech border border-[var(--ink)] px-2 py-1 text-[11px] tracking-[0.06em]"
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  {project.demoUrl ? (
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-primary"
-                    >
-                      在线演示
-                    </a>
-                  ) : null}
-                  {project.repoUrl ? (
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-ghost"
-                    >
-                      代码仓库
-                    </a>
-                  ) : null}
-                </div>
-              </div>
-            </article>
-          </Reveal>
+      <div className="project-grid">
+        {filtered.map((project, index) => (
+          <ProjectTile
+            key={project.title}
+            project={project}
+            index={index}
+            reduceMotion={!!reduceMotion}
+          />
         ))}
       </div>
     </section>
+  );
+}
+
+function ProjectTile({
+  project,
+  index,
+  reduceMotion,
+}: {
+  project: Project;
+  index: number;
+  reduceMotion: boolean;
+}) {
+  const href = project.demoUrl || project.repoUrl || "#about";
+
+  return (
+    <motion.a
+      href={href}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+      className="project-tile"
+      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{
+        duration: 0.5,
+        delay: Math.min(index * 0.04, 0.24),
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      <Image
+        src={project.image}
+        alt={project.title}
+        fill
+        className="object-cover"
+        sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+      />
+      <div className="project-tile-overlay">
+        <h3>{project.title}</h3>
+        <p>
+          {project.place}
+          {project.tags[0] ? ` · ${project.tags[0]}` : ""}
+        </p>
+      </div>
+    </motion.a>
   );
 }

@@ -5,20 +5,20 @@ import { useEffect, useState } from "react";
 import { profile } from "@/data/profile";
 
 const links = [
-  { href: "#about", label: "关于" },
-  { href: "#education", label: "教育" },
-  { href: "#skills", label: "技能" },
-  { href: "#experience", label: "经历" },
-  { href: "#projects", label: "作品" },
+  { href: "#projects", label: "Projects" },
+  { href: "#about", label: "About" },
+  { href: "#education", label: "Education" },
+  { href: "#skills", label: "Skills" },
+  { href: "#experience", label: "Experience" },
 ];
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 4);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -26,74 +26,76 @@ export function Nav() {
 
   return (
     <motion.header
-      initial={reduceMotion ? false : { opacity: 0, y: -12 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
-      className={`fixed inset-x-0 top-0 z-50 border-b-[5px] border-[var(--ink)] transition-colors duration-200 ${
-        scrolled ? "bg-[var(--bg)]/95 backdrop-blur-sm" : "bg-[var(--bg)]"
+      className={`sticky top-0 z-50 border-b bg-[var(--bg)]/92 backdrop-blur-md ${
+        scrolled ? "border-[var(--line)]" : "border-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-3 sm:px-5">
+      <nav className="mx-auto flex h-14 max-w-[88rem] items-center justify-between px-4 sm:px-8">
         <a
-          href="#about"
-          className="font-display text-base font-semibold tracking-tight text-[var(--ink)] sm:text-lg"
+          href="#projects"
+          className="font-display text-[1.35rem] font-semibold tracking-[-0.04em] text-[var(--ink)]"
         >
-          <span className="mr-2 inline-block h-3 w-3 bg-[var(--mondrian-red)] align-middle" />
           {profile.name}
         </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
-          {links.map((link, index) => (
-            <li key={link.href} className="flex items-center">
+        <ul className="hidden items-center gap-7 md:flex">
+          {links.map((link) => (
+            <li key={link.href}>
               <a
                 href={link.href}
-                className="font-mono-tech px-3 py-2 text-[11px] tracking-[0.14em] text-[var(--muted)] uppercase transition-colors hover:bg-[var(--mondrian-yellow)] hover:text-[var(--ink)]"
+                className="text-[0.92rem] text-[var(--ink-soft)] transition-opacity hover:opacity-55"
               >
                 {link.label}
               </a>
-              {index < links.length - 1 ? (
-                <span className="h-4 w-[2px] bg-[var(--ink)]" aria-hidden />
-              ) : null}
             </li>
           ))}
+          <li>
+            <a
+              href={`mailto:${profile.email}`}
+              className="text-[0.92rem] text-[var(--ink)] transition-opacity hover:opacity-55"
+            >
+              Contact
+            </a>
+          </li>
         </ul>
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center border-2 border-[var(--ink)] text-[var(--ink)] md:hidden"
+          className="inline-flex h-10 items-center text-sm text-[var(--ink)] md:hidden"
           aria-expanded={open}
           aria-label={open ? "关闭菜单" : "打开菜单"}
           onClick={() => setOpen((value) => !value)}
         >
-          <span className="sr-only">菜单</span>
-          <span className="flex flex-col gap-1.5">
-            <span
-              className={`block h-0.5 w-5 bg-current transition-transform ${open ? "translate-y-2 rotate-45" : ""}`}
-            />
-            <span
-              className={`block h-0.5 w-5 bg-current transition-opacity ${open ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`block h-0.5 w-5 bg-current transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`}
-            />
-          </span>
+          {open ? "Close" : "Menu"}
         </button>
       </nav>
 
       {open ? (
-        <div className="border-t-[3px] border-[var(--ink)] bg-[var(--bg)] px-3 py-3 md:hidden">
-          <ul className="flex flex-col">
+        <div className="border-t border-[var(--line)] px-4 py-4 md:hidden">
+          <ul className="flex flex-col gap-3">
             {links.map((link) => (
-              <li key={link.href} className="border-b border-[var(--ink)]/20">
+              <li key={link.href}>
                 <a
                   href={link.href}
-                  className="font-mono-tech block py-3 text-xs tracking-[0.16em] text-[var(--ink)] uppercase"
+                  className="block py-1 text-base text-[var(--ink)]"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href={`mailto:${profile.email}`}
+                className="block py-1 text-base text-[var(--ink)]"
+                onClick={() => setOpen(false)}
+              >
+                Contact
+              </a>
+            </li>
           </ul>
         </div>
       ) : null}

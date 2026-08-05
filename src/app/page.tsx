@@ -3,6 +3,7 @@ import { Experience } from "@/components/Experience";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Nav } from "@/components/Nav";
+import { ProjectDetails } from "@/components/ProjectDetails";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 
@@ -11,11 +12,12 @@ export default function Home() {
     <>
       <Nav />
       <main className="flex-1">
+        <Projects />
         <Hero />
         <Education />
         <Skills />
         <Experience />
-        <Projects />
+        <ProjectDetails />
       </main>
       <Footer />
     </>
