@@ -8,6 +8,13 @@ echo "==> Checking tools"
 command -v git >/dev/null
 command -v npm >/dev/null
 
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "Error: $(pwd) is not a git repository."
+  echo "If you see a .portfolio-git folder, run:"
+  echo "  rm -f .git && mv .portfolio-git .git"
+  exit 1
+fi
+
 if ! command -v gh >/dev/null 2>&1; then
   echo "==> Installing GitHub CLI"
   brew install gh
