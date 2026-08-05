@@ -2,13 +2,17 @@
 
 基于 **Next.js + TypeScript + Tailwind CSS** 的单页作品集，内容写在 `src/data/*`，部署到 Vercel 后任何人可通过链接访问。
 
-## 公网 / 手机访问
+## 公网 / 手机 / 国内访问
 
-线上地址（手机与电脑都用这个，不要用 localhost）：
+`vercel.app` 在国内经常打不开。请按 [deploy-china.md](./deploy-china.md) 部署到：
 
-**https://portfolio-flax-tau-30jddi3om8.vercel.app**
+1. **腾讯 EdgeOne Pages（推荐，国内友好）**
+2. **Cloudflare Pages**
+3. **Gitee Pages（国内最稳之一）**
 
-若打开提示 Vercel 登录，到 [Vercel Dashboard](https://vercel.com/dashboard) → 项目 `portfolio` → **Settings → Deployment Protection**，关闭 **Vercel Authentication**，保存后再访问。
+海外备用：https://portfolio-flax-tau-30jddi3om8.vercel.app
+
+本地不要用 `localhost` 给手机访问。
 
 ## 本地开发
 

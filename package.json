@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "export": "next build",
+    "deploy:cf": "npm run build && npx wrangler pages deploy out --project-name=wang-yichun-portfolio --commit-dirty=true"
   },
   "dependencies": {
     "framer-motion": "^12.43.0",
