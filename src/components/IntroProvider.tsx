@@ -67,10 +67,13 @@ export function IntroProvider({ children }: { children: ReactNode }) {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                {profile.name}
+                {profile.name.split("").map((char, index) => (
+                  <span key={`name-${index}`}>{char}</span>
+                ))}
               </motion.p>
               <motion.p
                 className="intro-kicker"
+                aria-label="Personal Portfolio"
                 initial={{ opacity: 0, y: 10 }}
                 animate={textIn ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
                 transition={{
@@ -79,7 +82,11 @@ export function IntroProvider({ children }: { children: ReactNode }) {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                Personal Portfolio
+                {"PERSONAL PORTFOLIO".split("").map((char, index) => (
+                  <span key={`sub-${index}`}>
+                    {char === " " ? "\u00A0" : char}
+                  </span>
+                ))}
               </motion.p>
             </div>
           </motion.div>
