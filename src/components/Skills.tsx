@@ -9,7 +9,7 @@ export function Skills() {
         <SectionHeading
           eyebrow="Skills"
           title="技能"
-          description="围绕前端交付链路组织能力，兼顾工程效率与体验质量。"
+          description="覆盖用户研究、设计工具、空间三维以及 AI 辅助实践。"
         />
       </Reveal>
 

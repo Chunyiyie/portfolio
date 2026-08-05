@@ -7,10 +7,11 @@ import { useIntroReady } from "@/components/IntroProvider";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
   { href: "#education", label: "Education" },
   { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
+  { href: "#awards", label: "Awards" },
+  { href: "#projects", label: "Projects" },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;

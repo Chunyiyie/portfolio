@@ -47,24 +47,19 @@ export function Hero() {
           transition={{ duration: 0.5, ease, delay: 0.28 }}
           className="flex flex-col justify-end"
         >
-          <p className="max-w-md text-base leading-relaxed text-[var(--muted)]">
+          <p className="max-w-xl text-base leading-relaxed text-[var(--muted)]">
             {profile.summary}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href={`mailto:${profile.email}`} className="btn-primary">
               Contact
             </a>
-            {profile.socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost"
-              >
-                {social.label}
-              </a>
-            ))}
+            <a href={`tel:${profile.phone}`} className="btn-ghost">
+              {profile.phone}
+            </a>
+            <a href={`mailto:${profile.email}`} className="btn-ghost">
+              {profile.email}
+            </a>
           </div>
           <p className="mt-6 text-sm text-[var(--muted)]">{profile.location}</p>
         </motion.div>

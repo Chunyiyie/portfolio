@@ -8,14 +8,14 @@ export function Experience() {
       <Reveal>
         <SectionHeading
           eyebrow="Experience"
-          title="工作经历"
-          description="在真实业务中推进产品迭代，关注可维护性与上线质量。"
+          title="经历"
+          description="从空间设计到 UX 研究与 AI 实践，持续转向产品与用户研究方向。"
         />
       </Reveal>
 
       <ol className="editorial-list border-t border-[var(--line)]">
         {experience.map((item, index) => (
-          <Reveal key={`${item.company}-${item.role}`} delay={index * 0.05}>
+          <Reveal key={`${item.company}-${item.role}-${item.period}`} delay={Math.min(index * 0.04, 0.2)}>
             <li className="grid gap-3 py-8 md:grid-cols-[180px_1fr] md:gap-12">
               <p className="text-sm text-[var(--muted)]">{item.period}</p>
               <div>

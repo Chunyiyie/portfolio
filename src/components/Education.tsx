@@ -8,8 +8,8 @@ export function Education() {
       <Reveal>
         <SectionHeading
           eyebrow="Education"
-          title="教育经历"
-          description="学习路径与关键成果，持续打磨技术基础与产品思维。"
+          title="教育背景"
+          description="从展示设计到设计学研究，持续积累研究与实践能力。"
         />
       </Reveal>
 

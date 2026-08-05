@@ -11,76 +11,65 @@ export type Project = {
 
 export const projectCategories = [
   "全部",
-  "产品",
-  "工具",
-  "设计系统",
+  "UX研究",
+  "AI实践",
+  "空间设计",
+  "学术研究",
 ] as const;
 
 export const projects: Project[] = [
   {
-    title: "协作看板",
+    title: "Google UX 认证实践",
     description:
-      "轻量级团队任务看板，支持拖拽排序、筛选与实时状态同步，聚焦清晰的信息层级与操作反馈。",
-    place: "Web Product",
-    category: "产品",
-    tags: ["Next.js", "TypeScript", "DnD", "Tailwind"],
+      "完成 Google UX 认证课程中的完整用户研究与产品设计流程，覆盖问题定义、用户访谈、线框与原型，以及可用性测试。",
+    place: "UX Certification",
+    category: "UX研究",
+    tags: ["Google UX", "User Research", "Prototype", "Usability Test"],
     image: "/projects/board.svg",
-    demoUrl: "https://example.com",
-    repoUrl: "https://github.com",
   },
   {
-    title: "个人记账助手",
+    title: "Vibe Coding 原型实验",
     description:
-      "记录日常收支并可视化趋势的 Web 应用，强调录入效率与图表可读性。",
-    place: "Personal Tool",
-    category: "工具",
-    tags: ["React", "Vite", "Chart", "LocalStorage"],
-    image: "/projects/ledger.svg",
-    demoUrl: "https://example.com",
-    repoUrl: "https://github.com",
-  },
-  {
-    title: "设计系统样例站",
-    description:
-      "展示按钮、表单、导航等基础组件的文档站点，统一交互状态与可访问性约定。",
-    place: "Design System",
-    category: "设计系统",
-    tags: ["Next.js", "Storybook", "a11y"],
-    image: "/projects/design-system.svg",
-    demoUrl: "https://example.com",
-    repoUrl: "https://github.com",
-  },
-  {
-    title: "日程管理台",
-    description:
-      "面向日常安排的轻量日程界面，强调时间块可读性与快速录入。",
-    place: "Productivity",
-    category: "工具",
-    tags: ["React", "TypeScript", "Calendar"],
-    image: "/projects/schedule.svg",
-    demoUrl: "https://example.com",
-    repoUrl: "https://github.com",
-  },
-  {
-    title: "内容发布台",
-    description:
-      "面向创作者的内容草稿与发布流程原型，突出状态流转与预览体验。",
-    place: "CMS Prototype",
-    category: "产品",
-    tags: ["Next.js", "MDX", "Editor"],
-    image: "/projects/publish.svg",
-    demoUrl: "https://example.com",
-    repoUrl: "https://github.com",
-  },
-  {
-    title: "组件实验室",
-    description:
-      "探索交互动效与可访问性细节的组件实验场，记录可复用模式。",
-    place: "Lab",
-    category: "设计系统",
-    tags: ["React", "Motion", "a11y"],
+      "使用 Claude Code、Cursor、Codex 等 AI 编程工具快速搭建应用原型，探索 AI 辅助开发与产品体验验证的工作流。",
+    place: "AI Practice",
+    category: "AI实践",
+    tags: ["Cursor", "Claude Code", "Codex", "Prototype"],
     image: "/projects/lab.svg",
-    demoUrl: "https://example.com",
-    repoUrl: "https://github.com",
+  },
+  {
+    title: "浙江大学交互设计研学",
+    description:
+      "系统学习统计学、数据挖掘、产品开发流程与设计理论，强化以用户为中心的设计思维与数据驱动研究方法。",
+    place: "Zhejiang University",
+    category: "UX研究",
+    tags: ["Interaction Design", "Data", "Product Process"],
+    image: "/projects/publish.svg",
+  },
+  {
+    title: "艺术融入乡村建设研究",
+    description:
+      "在艺境文化担任科研助理期间，围绕艺术融入乡村建设开展文献研究，梳理国内外案例与方法，并完成成果汇报。",
+    place: "Research",
+    category: "学术研究",
+    tags: ["Literature Review", "Case Study", "Presentation"],
+    image: "/projects/schedule.svg",
+  },
+  {
+    title: "景观设计全流程项目",
+    description:
+      "在襄阳市建筑设计研究院期间，独立完成 44 个项目，覆盖需求分析、方案设计、施工图、规划文本与验收环节。",
+    place: "Xiangyang",
+    category: "空间设计",
+    tags: ["Landscape", "Construction Docs", "Client Delivery"],
+    image: "/projects/design-system.svg",
+  },
+  {
+    title: "展示空间设计实践",
+    description:
+      "在杰尔斯展示期间，基于品牌理念提炼设计元素，完成空间方案与效果图，并协同平面与策划推进项目落地。",
+    place: "Shenzhen",
+    category: "空间设计",
+    tags: ["Spatial Design", "Rendering", "Exhibition"],
+    image: "/projects/ledger.svg",
   },
 ];

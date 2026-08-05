@@ -5,25 +5,39 @@ export type SkillGroup = {
 
 export const skills: SkillGroup[] = [
   {
-    category: "前端",
+    category: "UX / 研究方法",
     items: [
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Framer Motion",
+      "用户研究",
+      "可用性测试",
+      "Google UX 认证",
+      "产品设计方法论",
+      "数据驱动研究",
     ],
   },
   {
-    category: "工程与协作",
-    items: ["Git", "Vite", "ESLint", "Jest", "CI/CD"],
+    category: "设计工具",
+    items: [
+      "Figma",
+      "Adobe XD",
+      "Photoshop",
+      "Illustrator",
+      "InDesign",
+      "CorelDRAW",
+    ],
   },
   {
-    category: "后端与数据",
-    items: ["Node.js", "REST API", "PostgreSQL", "Prisma"],
+    category: "空间 / 三维",
+    items: ["AutoCAD", "SketchUp", "Lumion"],
   },
   {
-    category: "设计与产品",
-    items: ["Figma", "无障碍基础", "响应式设计", "信息架构"],
+    category: "AI 与分析",
+    items: [
+      "Vibe Coding",
+      "Cursor",
+      "Claude Code",
+      "Codex",
+      "SPSS",
+      "AI 产品体验",
+    ],
   },
 ];
