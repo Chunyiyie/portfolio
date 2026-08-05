@@ -27,23 +27,21 @@ npm run dev
 
 ## 部署到 Vercel（公开链接）
 
-1. 在 GitHub 新建仓库（例如 `portfolio`），不要勾选自动生成 README。
-2. 在本项目目录执行：
+本地代码已 commit。在系统自带终端执行：
 
 ```bash
-git add .
-git commit -m "Initial portfolio site"
-git branch -M main
-git remote add origin https://github.com/<你的用户名>/portfolio.git
-git push -u origin main
+cd /Users/wangyichun/Documents/portfolio
+./deploy-now.sh
 ```
 
-3. 打开 [https://vercel.com](https://vercel.com)，用 GitHub 登录。
-4. 点击 **Add New… → Project**，导入刚推送的仓库。
-5. 保持默认 Framework Preset（Next.js），点击 **Deploy**。
-6. 部署完成后会得到类似 `https://portfolio-xxxx.vercel.app` 的公开链接，任何人点击即可查看。
+脚本会完成 GitHub 登录/建仓/`git push`，以及 Vercel 登录与生产部署，最后打印公开 URL（类似 `https://portfolio-xxxx.vercel.app`）。
 
-之后每次 `git push`，Vercel 会自动重新部署。
+### 手动方式（可选）
+
+1. 推送到 GitHub 后，打开 [https://vercel.com](https://vercel.com) 用 GitHub 登录。
+2. **Add New… → Project**，导入 `portfolio` 仓库，保持 Next.js 默认设置并 Deploy。
+
+之后每次 `git push`（若已绑定仓库）会自动重新部署。
 
 ### 可选：自定义域名
 
