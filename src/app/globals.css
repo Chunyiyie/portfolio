@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #eef4f1;
+  --bg-elevated: #f7fbf9;
+  --ink: #10231f;
+  --ink-soft: #243f39;
+  --muted: #5b726b;
+  --accent: #2f8f78;
+  --accent-strong: #1f6d5b;
+  --line: color-mix(in oklab, var(--ink) 12%, transparent);
+  --shadow: 0 24px 60px color-mix(in oklab, #0b1c18 12%, transparent);
+  --background: var(--bg);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body), "PingFang SC", "Hiragino Sans GB", "Noto Sans SC",
+    "Microsoft YaHei", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body), "PingFang SC", "Hiragino Sans GB", "Noto Sans SC",
+    "Microsoft YaHei", sans-serif;
+  min-height: 100%;
+}
+
+.font-display {
+  font-family: var(--font-display), "PingFang SC", "Hiragino Sans GB",
+    "Noto Sans SC", "Microsoft YaHei", sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 35%, white);
+  color: var(--ink);
+}
+
+.section-shell {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding: 5.5rem 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    padding-inline: 2rem;
+    padding-block: 6.5rem;
+  }
+}
+
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.15rem;
+  font-size: 0.95rem;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: #f4faf7;
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  background: color-mix(in oklab, white 45%, transparent);
+}
+
+.btn-ghost:hover {
+  border-color: color-mix(in oklab, var(--accent) 55%, var(--line));
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.hero-atmosphere {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 15% 20%, #b7e2d4 0%, transparent 58%),
+    radial-gradient(ellipse 55% 50% at 85% 15%, #d7ebe3 0%, transparent 55%),
+    radial-gradient(ellipse 60% 45% at 70% 80%, #c5ddd4 0%, transparent 60%),
+    linear-gradient(160deg, #e8f3ee 0%, #f4f8f5 45%, #e3efe9 100%);
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn-primary:hover,
+  .btn-ghost:hover {
+    transform: none;
+  }
+}
