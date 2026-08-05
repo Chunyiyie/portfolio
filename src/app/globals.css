@@ -217,6 +217,40 @@ body {
   border-top: 1px solid var(--line);
 }
 
+.certificate-card {
+  display: grid;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .certificate-card {
+    grid-template-columns: 1.35fr 0.9fr;
+  }
+}
+
+.certificate-main {
+  padding: 1.75rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .certificate-main {
+    padding: 2.25rem;
+  }
+}
+
+.certificate-side {
+  background: #1f2937;
+  padding: 1.75rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .certificate-side {
+    padding: 2.25rem;
+  }
+}
+
 .intro-cover {
   position: fixed;
   inset: 0;

@@ -11,7 +11,7 @@ export const experience: ExperienceItem[] = [
     role: "UX 研究与项目实践",
     period: "2026.01 — 至今",
     highlights: [
-      "完成 Google UX 认证课程学习与项目实践",
+      "于 2026.06.23 完成 Google UX Design Professional Certificate（Coursera 可验证）",
       "开展 AI 产品应用与体验实践",
       "进行 Vibe Coding 实践：使用 Claude Code、Cursor、Codex 等 AI 编程工具快速搭建应用原型，体验 AI 辅助开发流程",
     ],

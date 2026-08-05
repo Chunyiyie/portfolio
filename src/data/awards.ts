@@ -5,6 +5,10 @@ export type AwardItem = {
 
 export const awards: AwardItem[] = [
   {
+    year: "2026.06",
+    title: "Google UX Design Professional Certificate（Coursera）",
+  },
+  {
     year: "2022",
     title: "米兰设计周高校设计学科师生优秀作品展三等奖",
   },

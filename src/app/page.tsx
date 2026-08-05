@@ -1,4 +1,5 @@
 import { Awards } from "@/components/Awards";
+import { Certificates } from "@/components/Certificates";
 import { Education } from "@/components/Education";
 import { Experience } from "@/components/Experience";
 import { Footer } from "@/components/Footer";
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <Experience />
         <Education />
+        <Certificates />
         <Skills />
         <Awards />
         <Projects />

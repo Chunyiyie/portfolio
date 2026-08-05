@@ -19,13 +19,14 @@ export const projectCategories = [
 
 export const projects: Project[] = [
   {
-    title: "Google UX 认证实践",
+    title: "Google UX 专业证书",
     description:
-      "完成 Google UX 认证课程中的完整用户研究与产品设计流程，覆盖问题定义、用户访谈、线框与原型，以及可用性测试。",
-    place: "UX Certification",
+      "于 2026 年 6 月 23 日完成 Google UX Design Professional Certificate，覆盖共情、定义、构思、线框、高保真原型与测试的完整设计流程。",
+    place: "Coursera · Google",
     category: "UX研究",
-    tags: ["Google UX", "User Research", "Prototype", "Usability Test"],
+    tags: ["Google UX", "Figma", "User Research", "Prototype"],
     image: "/projects/board.svg",
+    demoUrl: "https://coursera.org/verify/professional-cert/XCVNV964L29Y",
   },
   {
     title: "Vibe Coding 原型实验",
