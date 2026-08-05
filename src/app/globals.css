@@ -217,6 +217,37 @@ body {
   border-top: 1px solid var(--line);
 }
 
+.intro-cover {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.intro-cover-inner {
+  text-align: center;
+}
+
+.intro-kicker {
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.intro-name {
+  font-family: var(--font-display), "PingFang SC", "Hiragino Sans GB",
+    "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
