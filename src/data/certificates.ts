@@ -5,6 +5,7 @@ export type Certificate = {
   date: string;
   verifyUrl: string;
   summary: string;
+  image: string;
   courses: string[];
 };
 
@@ -17,6 +18,7 @@ export const certificates: Certificate[] = [
     verifyUrl: "https://coursera.org/verify/professional-cert/XCVNV964L29Y",
     summary:
       "完成由 Google 设计的 8 门课程，涵盖从共情用户、定义痛点、构思方案，到线框、高保真原型与测试反馈的完整 UX 设计流程，为入门级 UX 设计岗位做好准备。",
+    image: "/certificates/google-ux-design.jpg",
     courses: [
       "Foundations of User Experience (UX) Design",
       "Start the UX Design Process: Empathize, Define, and Ideate",

@@ -226,7 +226,23 @@ body {
 
 @media (min-width: 900px) {
   .certificate-card {
-    grid-template-columns: 1.35fr 0.9fr;
+    grid-template-columns: 1.2fr 0.9fr;
+  }
+}
+
+.certificate-image {
+  position: relative;
+  display: block;
+  min-height: 260px;
+  border-bottom: 1px solid var(--line);
+  background: #f3f6f9;
+}
+
+@media (min-width: 900px) {
+  .certificate-image {
+    min-height: 420px;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
   }
 }
 
@@ -240,17 +256,6 @@ body {
   }
 }
 
-.certificate-side {
-  background: #1f2937;
-  padding: 1.75rem 1.5rem;
-}
-
-@media (min-width: 640px) {
-  .certificate-side {
-    padding: 2.25rem;
-  }
-}
-
 .intro-cover {
   position: fixed;
   inset: 0;
@@ -258,7 +263,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+  background: #0a0a0a;
   pointer-events: none;
 }
 
@@ -271,7 +276,7 @@ body {
   font-size: 0.8rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .intro-name {
@@ -280,7 +285,7 @@ body {
   font-size: clamp(2.4rem, 7vw, 4.5rem);
   font-weight: 600;
   letter-spacing: -0.045em;
-  color: var(--ink);
+  color: #ffffff;
 }
 
 @media (prefers-reduced-motion: reduce) {
