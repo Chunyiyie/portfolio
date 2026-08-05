@@ -59,24 +59,27 @@ export function IntroProvider({ children }: { children: ReactNode }) {
           >
             <div className="intro-cover-inner">
               <motion.p
-                className="intro-kicker"
-                initial={{ opacity: 0, y: 10 }}
-                animate={textIn ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              >
-                Portfolio
-              </motion.p>
-              <motion.p
                 className="intro-name"
                 initial={{ opacity: 0, y: 18 }}
                 animate={textIn ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
                 transition={{
                   duration: 0.55,
-                  delay: 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
                 {profile.name}
+              </motion.p>
+              <motion.p
+                className="intro-kicker"
+                initial={{ opacity: 0, y: 10 }}
+                animate={textIn ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                transition={{
+                  duration: 0.45,
+                  delay: 0.1,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                Personal Portfolio
               </motion.p>
             </div>
           </motion.div>
