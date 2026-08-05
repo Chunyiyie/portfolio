@@ -2,6 +2,14 @@
 
 基于 **Next.js + TypeScript + Tailwind CSS** 的单页作品集，内容写在 `src/data/*`，部署到 Vercel 后任何人可通过链接访问。
 
+## 公网 / 手机访问
+
+线上地址（手机与电脑都用这个，不要用 localhost）：
+
+**https://portfolio-flax-tau-30jddi3om8.vercel.app**
+
+若打开提示 Vercel 登录，到 [Vercel Dashboard](https://vercel.com/dashboard) → 项目 `portfolio` → **Settings → Deployment Protection**，关闭 **Vercel Authentication**，保存后再访问。
+
 ## 本地开发
 
 ```bash
@@ -10,7 +18,8 @@ npm install
 npm run dev
 ```
 
-浏览器打开 [http://localhost:3000](http://localhost:3000)。
+电脑浏览器打开 [http://localhost:3000](http://localhost:3000)。  
+`localhost` 仅本机可访问，手机请用上方公网链接。
 
 ## 修改内容
 

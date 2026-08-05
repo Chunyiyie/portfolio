@@ -191,24 +191,34 @@ body {
 
 .filter-bar {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.35rem 1.25rem;
   padding: 1rem 1.25rem 1.25rem;
   border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.filter-bar::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 640px) {
   .filter-bar {
+    flex-wrap: wrap;
     padding-inline: 2rem;
+    overflow-x: visible;
   }
 }
 
 .filter-chip {
+  flex: 0 0 auto;
   border: 0;
   background: transparent;
   color: var(--muted);
   font-size: 0.85rem;
-  padding: 0.2rem 0;
+  padding: 0.35rem 0;
   cursor: pointer;
   transition: color 0.2s ease;
 }
