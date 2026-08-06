@@ -35,26 +35,25 @@ npm run deploy:cf
 
 ---
 
-## 方案 2：Gitee Pages（国内通常最稳）
+## 方案 2：Gitee Pages（国内通常最稳，推荐）
 
-1. 打开 https://gitee.com 注册（手机号）
-2. 新建仓库 `portfolio`（可公开）
-3. 电脑执行：
+1. 打开 https://gitee.com 用手机号注册/登录
+2. 新建**公开**仓库，名称必须是：`portfolio`
+3. 在电脑终端执行（把用户名换成你的）：
 
 ```bash
 cd /Users/wangyichun/Documents/portfolio
-npm run build
-cd out
-git init
-git add -A
-git commit -m "deploy"
-git branch -M main
-git remote add origin https://gitee.com/<你的Gitee用户名>/portfolio.git
-git push -u origin main
+./deploy-gitee.sh <你的Gitee用户名>
 ```
 
-4. 仓库页 → **服务** → **Gitee Pages** → 启动  
-5. 得到：`https://<用户名>.gitee.io/portfolio`
+4. 打开仓库页 → **服务** → **Gitee Pages** → **启动**
+   - 部署分支：`master`
+   - 部署目录：`/`
+5. 访问：
+
+`https://<你的Gitee用户名>.gitee.io/portfolio/`
+
+说明：脚本会自动用 `/portfolio` 作为路径前缀，避免样式和图片丢失。
 
 ---
 
