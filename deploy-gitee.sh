@@ -15,28 +15,38 @@ if [ -z "$GITEE_USER" ] || [ -z "$GITEE_TOKEN" ]; then
   echo "用法："
   echo "  ./deploy-gitee.sh <Gitee用户名> <私人令牌>"
   echo ""
-  echo "1) 确认仓库已创建：https://gitee.com/<用户名>/portfolio （公开）"
-  echo "2) 私人令牌：头像 -> 设置 -> 安全设置 -> 私人令牌"
-  echo "   权限至少勾选：projects"
-  echo "3) 再执行上面的命令（令牌粘贴为第二参数，不要交互输入）"
+  echo "用户名看仓库地址："
+  echo "  https://gitee.com/这里就是用户名/portfolio"
   exit 1
 fi
 
+API_URL="https://gitee.com/api/v5/repos/${GITEE_USER}/portfolio"
 REPO_URL="https://oauth2:${GITEE_TOKEN}@gitee.com/${GITEE_USER}/portfolio.git"
 BASE_PATH="/portfolio"
 
-echo "==> 检查远程仓库是否存在"
-HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://gitee.com/${GITEE_USER}/portfolio" || true)
-if [ "$HTTP_CODE" = "404" ]; then
-  echo "仓库不存在：https://gitee.com/${GITEE_USER}/portfolio"
-  echo "请先在 Gitee 网页新建公开仓库 portfolio"
+echo "==> 用令牌检查仓库 https://gitee.com/${GITEE_USER}/portfolio"
+API_CODE=$(curl -s -o /tmp/gitee-repo-check.json -w "%{http_code}" \
+  "${API_URL}?access_token=${GITEE_TOKEN}" || true)
+
+if [ "$API_CODE" != "200" ]; then
+  echo "仓库检查失败（HTTP ${API_CODE}）。"
+  echo "请打开浏览器确认这两个信息完全一致："
+  echo "  1) 仓库地址是：https://gitee.com/${GITEE_USER}/portfolio"
+  echo "  2) 私人令牌属于同一个账号，并勾选了 projects 权限"
+  echo ""
+  echo "若仓库在别的路径（组织/不同用户名），把浏览器地址栏完整链接发我。"
+  if [ -f /tmp/gitee-repo-check.json ]; then
+    echo "接口返回："
+    head -c 400 /tmp/gitee-repo-check.json
+    echo ""
+  fi
   exit 1
 fi
 
-echo "==> 用 basePath=${BASE_PATH} 构建静态站"
+echo "==> 仓库已确认，开始构建 basePath=${BASE_PATH}"
 BASE_PATH="${BASE_PATH}" npm run build
 
-echo "==> 推送到 Gitee: https://gitee.com/${GITEE_USER}/portfolio.git"
+echo "==> 推送到 Gitee"
 TMP_GIT="/tmp/portfolio-gitee-git-$$"
 rm -rf "$TMP_GIT"
 git --git-dir="$TMP_GIT" init -b master
