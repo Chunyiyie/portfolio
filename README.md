@@ -4,16 +4,15 @@
 
 ## 公网 / 手机 / 国内访问
 
-EdgeOne 正式域名需要实名，认证不了请改用：
+**国内推荐（Gitee Pages）：**  
+https://ayiyi_1.gitee.io/portfolio/
 
-1. **Cloudflare Pages（推荐，邮箱即可，一般无需国内实名）**
-2. **Gitee Pages（国内通常最稳）**
-
-步骤见 [deploy-china.md](./deploy-china.md)。
-
-不要用 EdgeOne Preview / `*.edgeone.cool` 临时链接给手机（会 401）。
+开启方式：仓库 [ayiyi_1/portfolio](https://gitee.com/ayiyi_1/portfolio) → 服务 → Gitee Pages → 启动（分支 `master`，目录 `/`）。
 
 海外备用：https://portfolio-flax-tau-30jddi3om8.vercel.app
+
+不要用 EdgeOne Preview / `*.edgeone.cool` 临时链接（手机会 401）。  
+其他部署说明见 [deploy-china.md](./deploy-china.md)。
 
 ## 本地开发
 
