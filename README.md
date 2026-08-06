@@ -4,15 +4,19 @@
 
 ## 公网 / 手机 / 国内访问
 
-**国内推荐（Gitee Pages）：**  
-https://ayiyi_1.gitee.io/portfolio/
+**国内推荐：腾讯云 CloudBase 静态网站托管**
 
-开启方式：仓库 [ayiyi_1/portfolio](https://gitee.com/ayiyi_1/portfolio) → 服务 → Gitee Pages → 启动（分支 `master`，目录 `/`）。
+```bash
+cd /Users/wangyichun/Documents/portfolio
+./deploy-cloudbase.sh
+```
+
+步骤见 [deploy-china.md](./deploy-china.md)。
 
 海外备用：https://portfolio-flax-tau-30jddi3om8.vercel.app
 
-不要用 EdgeOne Preview / `*.edgeone.cool` 临时链接（手机会 401）。  
-其他部署说明见 [deploy-china.md](./deploy-china.md)。
+不要用 EdgeOne Preview / `*.edgeone.cool`（手机会 401）。  
+Gitee Pages 已下线，无法使用。
 
 ## 本地开发
 
