@@ -4,15 +4,16 @@
 
 ## 公网 / 手机 / 国内访问
 
-`vercel.app` 在国内经常打不开。请按 [deploy-china.md](./deploy-china.md) 部署到：
+EdgeOne 正式域名需要实名，认证不了请改用：
 
-1. **腾讯 EdgeOne Pages（推荐，国内友好）**
-2. **Cloudflare Pages**
-3. **Gitee Pages（国内最稳之一）**
+1. **Cloudflare Pages（推荐，邮箱即可，一般无需国内实名）**
+2. **Gitee Pages（国内通常最稳）**
+
+步骤见 [deploy-china.md](./deploy-china.md)。
+
+不要用 EdgeOne Preview / `*.edgeone.cool` 临时链接给手机（会 401）。
 
 海外备用：https://portfolio-flax-tau-30jddi3om8.vercel.app
-
-本地不要用 `localhost` 给手机访问。
 
 ## 本地开发
 

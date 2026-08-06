@@ -1,39 +1,45 @@
-# 国内可访问部署说明
+# 国内可访问部署（无需 EdgeOne 实名）
 
-`vercel.app` 在国内经常打不开或很慢。本项目已改为静态导出（`out/`），并推送了 `gh-pages` 分支。
+EdgeOne 正式域名需要腾讯云实名，认证不了就换下面方案。
 
-## 方案 A（推荐）：腾讯 EdgeOne Pages
+## 方案 1：Cloudflare Pages（推荐，一般不用国内实名）
 
-国内访问较稳，可直接连接 GitHub。
+只需邮箱注册 Cloudflare，用 GitHub 导入即可。
 
-1. 打开 https://edgeone.ai/pages （或搜索「腾讯云 EdgeOne Pages」）
-2. 使用 GitHub 登录并导入仓库 **Chunyiyie/portfolio**
-3. 构建设置二选一：
-   - **用源码构建**：Build command `npm run build`，Output `out`
-   - **直接发布静态分支**：选择分支 `gh-pages`，根目录 `/`，无需构建
-4. 部署完成后会得到类似 `https://xxx.edgeone.app` 的链接  
-   **手机 + 国内网络**都可打开。
+1. 打开 https://dash.cloudflare.com 注册/登录（邮箱即可）
+2. 左侧进入 **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
+3. 授权 GitHub，选择仓库 **Chunyiyie/portfolio**
+4. 构建设置：
+   - Framework preset: **Next.js (Static HTML Export)** 或 None
+   - Build command: `npm run build`
+   - Build output directory: `out`
+   - Root directory: `/`
+5. **Save and Deploy**
+6. 得到类似地址：
 
-## 方案 B：Cloudflare Pages
+`https://wang-yichun-portfolio.pages.dev`
 
-1. 打开 https://dash.cloudflare.com → Workers & Pages → Create
-2. 连接 GitHub 仓库 `Chunyiyie/portfolio`
-3. 构建设置：
-   - Build command：`npm run build`
-   - Build output directory：`out`
-4. 得到 `https://xxx.pages.dev` 链接（多数地区比 Vercel 更稳）
+用**手机流量**打开测试。多数情况比 `vercel.app` / EdgeOne 预览链接更适合分享。
 
-本地一键部署（需先 `npx wrangler login`）：
+### 本地命令部署（可选）
+
+在电脑终端执行：
 
 ```bash
 cd /Users/wangyichun/Documents/portfolio
+npx wrangler login
 npm run deploy:cf
 ```
 
-## 方案 C：Gitee Pages（国内最稳的免费方案之一）
+浏览器完成 Cloudflare 登录后，会打印公网链接。
 
-1. 在 https://gitee.com 新建仓库（如 `portfolio`）
-2. 本地执行：
+---
+
+## 方案 2：Gitee Pages（国内通常最稳）
+
+1. 打开 https://gitee.com 注册（手机号）
+2. 新建仓库 `portfolio`（可公开）
+3. 电脑执行：
 
 ```bash
 cd /Users/wangyichun/Documents/portfolio
@@ -41,15 +47,23 @@ npm run build
 cd out
 git init
 git add -A
-git commit -m "Deploy portfolio"
+git commit -m "deploy"
 git branch -M main
-git remote add origin https://gitee.com/<你的用户名>/portfolio.git
+git remote add origin https://gitee.com/<你的Gitee用户名>/portfolio.git
 git push -u origin main
 ```
 
-3. 仓库页 → 服务 → Gitee Pages → 启动  
-4. 得到 `https://<用户名>.gitee.io/portfolio/` 链接
+4. 仓库页 → **服务** → **Gitee Pages** → 启动  
+5. 得到：`https://<用户名>.gitee.io/portfolio`
 
-## 现有海外链接（备用）
+---
+
+## 不要用这些给手机分享
+
+- EdgeOne 的 Preview / `edgeone.cool` 临时链接（会 401）
+- `localhost`
+- 未关闭鉴权的 Vercel 保护链接
+
+## 备用（海外）
 
 https://portfolio-flax-tau-30jddi3om8.vercel.app
